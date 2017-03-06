@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     Boolean isSpeaking = false;
     ArrayList<VoiceLine> voiceLines = new ArrayList<>();
     int antimatter = -1;
+    int unrelated = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -207,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
         List<String> choiceofSG = Arrays.asList("It's the choice of Steins Gate");
         Log.e(TAG, input);
         Random randomGen = new Random();
-        if(input.contains("ナイス")) {
+        if(input.contains("nice")) {
             switch (randomGen.nextInt(1)) {
 
                 case 0:
@@ -222,63 +223,55 @@ public class MainActivity extends AppCompatActivity {
             //mediaPlayer.start();
 
 
-        }
-
-
-        if (input.contains("中二病")) {
-
-            //mediaPlayer = mediaPlayer.create(getApplicationContext(), R.raw.okabe_chuunibyou_combined);
-            //mediaPlayer.start();
-
-        }
-
-        if (input.contains("Steins Gate antimatter") || input.contains("antimatter") || input.contains("S G antimatter") || input.contains("St antimatter") || input.contains("St anti matter")) {
+        } else if (input.contains("shaman girls") || input.contains("some Girls")) {
+            speak(voiceLines.get(1 + randomGen.nextInt(3)));
+        } else if (input.contains("Steins Gate antimatter") || input.contains("antimatter") || input.contains("S G antimatter") || input.contains("St antimatter") || input.contains("St anti matter")) {
             antimatter += 1;
             switch(antimatter) {
 
                 case 0:
                     // Nothing here
-                    speak(voiceLines.get(1));
+                    speak(new VoiceLine(R.raw.antimatter_nothinghere_1, Mood.SURPRISED));
                     break;
                 case 1:
                     // Nothing here
-                    speak(voiceLines.get(2));
+                    speak(new VoiceLine(R.raw.antimatter_nothinghere_2, Mood.SAD));
                     break;
                 case 2:
                     // Nothing here
-                    speak(voiceLines.get(3));
+                    speak(new VoiceLine(R.raw.antimatter_nothinghere_3, Mood.ANGRY));
                     break;
                 case 3:
                     // Oh yes! Something is here!
-                    speak(voiceLines.get(4));
+                    speak(new VoiceLine(R.raw.antimatter_ohyes, Mood.THINKING));
                     break;
                 case 4:
                     // What is this?
-                    speak(voiceLines.get(5));
+                    speak(new VoiceLine(R.raw.antimatter_whatisthis, Mood.HAPPY));
                     break;
                 case 5:
                     // Like a message!
-                    speak(voiceLines.get(6));
+                    speak(new VoiceLine(R.raw.antimatter_likeamessage, Mood.HAPPY));
                     break;
                 case 6:
                     // S;G Antimatter Never!
-                    speak(voiceLines.get(7));
+                    speak(new VoiceLine(R.raw.antimatter_neva_1, Mood.SURPRISED));
                     break;
                 case 7:
                     // S;G Antimatter Never!
-                    speak(voiceLines.get(8));
+                    speak(new VoiceLine(R.raw.antimatter_neva_2, Mood.SURPRISED));
                     break;
                 case 8:
                     // S;G Antimatter Never!
-                    speak(voiceLines.get(9));
+                    speak(new VoiceLine(R.raw.antimatter_neva_3, Mood.SURPRISED));
                     break;
                 case 9:
                     // S;G Antimatter Never!
-                    speak(voiceLines.get(10));
+                    speak(new VoiceLine(R.raw.antimatter_neva_4, Mood.ANGRY));
                     break;
                 case 10:
                     // S;G Antimatter Never!
-                    speak(voiceLines.get(11));
+                    speak(new VoiceLine(R.raw.antimatter_neva_4, Mood.ANGRY));
                     antimatter = 0;
                     break;
 
@@ -293,10 +286,19 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        }
+        } else if (input.contains("ルカコ")) {
 
-        if (input.contains("ルカコ")) {
 
+        } else {
+
+            unrelated++;
+
+            if (unrelated == 1) {
+
+                speak(voiceLines.get(4));
+                unrelated = 0;
+
+            }
 
 
         }
@@ -307,18 +309,10 @@ public class MainActivity extends AppCompatActivity {
     private void setupLines() {
 
         voiceLines.add(new VoiceLine(R.raw.leskinen_nice, Mood.HAPPY));
-        voiceLines.add(new VoiceLine(R.raw.antimatter_nothinghere_1, Mood.SURPRISED));
-        voiceLines.add(new VoiceLine(R.raw.antimatter_nothinghere_2, Mood.SAD));
-        voiceLines.add(new VoiceLine(R.raw.antimatter_nothinghere_3, Mood.ANGRY));
-        voiceLines.add(new VoiceLine(R.raw.antimatter_ohyes, Mood.THINKING));
-        voiceLines.add(new VoiceLine(R.raw.antimatter_whatisthis, Mood.HAPPY));
-        voiceLines.add(new VoiceLine(R.raw.antimatter_likeamessage, Mood.HAPPY));
-        voiceLines.add(new VoiceLine(R.raw.antimatter_neva_1, Mood.SURPRISED));
-        voiceLines.add(new VoiceLine(R.raw.antimatter_neva_2, Mood.SURPRISED));
-        voiceLines.add(new VoiceLine(R.raw.antimatter_neva_3, Mood.SURPRISED));
-        voiceLines.add(new VoiceLine(R.raw.antimatter_neva_4, Mood.ANGRY));
-        voiceLines.add(new VoiceLine(R.raw.antimatter_neva_5, Mood.ANGRY));
-
+        voiceLines.add(new VoiceLine(R.raw.leskinen_ohno, Mood.SURPRISED));
+        voiceLines.add(new VoiceLine(R.raw.leskinen_shamangirls, Mood.SURPRISED));
+        voiceLines.add(new VoiceLine(R.raw.leskinen_holycow, Mood.SAD));
+        voiceLines.add(new VoiceLine(R.raw.leskinen_awesome, Mood.HAPPY));
 
 
 
@@ -342,7 +336,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private class Listener implements RecognitionListener {
-        final String TAG = "VoiceRec.Listener";
+        final String TAG = "Amadeus.Listener";
 
         @Override
         public void onReadyForSpeech(Bundle params) {
