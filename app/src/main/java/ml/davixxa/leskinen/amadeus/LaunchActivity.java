@@ -13,9 +13,10 @@ import android.widget.TextView;
 public class LaunchActivity extends AppCompatActivity {
     ImageView connectTBI, cancelTBI;
     TextView statusTBI;
-    Button connect;
+    ImageView connect;
     AnimationDrawable logo;
     ImageView imageViewLogo;
+
     Boolean isPressed = false;
 
 
@@ -24,7 +25,7 @@ public class LaunchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch);
 
-        connect = (Button) findViewById(R.id.btnConnect);
+        connect = (ImageView) findViewById(R.id.imgConnect);
 
 
 
@@ -33,6 +34,7 @@ public class LaunchActivity extends AppCompatActivity {
     public void connectClick(View view) {
         try {
             isPressed = true;
+            //connect.setImageDrawable(R.drawable.connect_normal);
             MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.tone);
 
             mp.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
