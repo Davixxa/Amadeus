@@ -31,8 +31,8 @@
 
     <ImageView
         android:id="@+id/amadeusLogoTrans"
-        android:layout_width="104dp"
-        android:layout_height="120dp"
+        android:layout_width="77dp"
+        android:layout_height="82dp"
         app:srcCompat="@drawable/amadeus_transparent"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -40,6 +40,6 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="464dp" />
+        android:layout_marginTop="505dp" />
 
 </android.support.constraint.ConstraintLayout>

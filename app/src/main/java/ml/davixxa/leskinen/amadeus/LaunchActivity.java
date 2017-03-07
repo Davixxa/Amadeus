@@ -34,7 +34,7 @@ public class LaunchActivity extends AppCompatActivity {
     public void connectClick(View view) {
         try {
             isPressed = true;
-            //connect.setImageDrawable(R.drawable.connect_normal);
+            connect.setImageResource(R.drawable.connect_selected);
             MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.tone);
 
             mp.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
@@ -55,6 +55,7 @@ public class LaunchActivity extends AppCompatActivity {
                     mp.release();
                     Intent intent = new Intent(LaunchActivity.this, MainActivity.class);
                     startActivity(intent);
+                    connect.setImageResource(R.drawable.connect_normal);
 
 
                 }

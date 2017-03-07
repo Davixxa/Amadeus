@@ -22,49 +22,36 @@
         android:onClick="connectClick"
         android:text="Connect"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.791" />
+        tools:layout_editor_absoluteY="567dp"
+        tools:layout_editor_absoluteX="384dp" />
 
     <ImageView
         android:id="@+id/imgCancel"
-        android:layout_width="168dp"
-        android:layout_height="58dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="179dp"
+        android:layout_height="74dp"
         app:layout_constraintBottom_toBottomOf="@+id/imgViewBG"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.951"
-        app:srcCompat="@drawable/cancel_normal" />
+        app:srcCompat="@drawable/cancel_normal"
+        android:layout_marginBottom="82dp"
+        app:layout_constraintHorizontal_bias="0.502" />
 
     <ImageView
         android:id="@+id/imgConnect"
-        android:layout_width="168dp"
-        android:layout_height="63dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="414dp"
+        android:layout_width="181dp"
+        android:layout_height="80dp"
         android:onClick="connectClick"
-        app:layout_constraintBottom_toBottomOf="@+id/imgViewBG"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/connect_normal" />
+        app:srcCompat="@drawable/connect_normal"
+        app:layout_constraintBottom_toBottomOf="@+id/imgViewBG"
+        android:layout_marginBottom="132dp"
+        app:layout_constraintHorizontal_bias="0.502" />
 
     <TextView
         android:id="@+id/tvConnect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
         android:fontFamily="monospace"
         android:text="@string/connect_to_leskinen"
         android:textColor="?android:attr/colorPressedHighlight"
