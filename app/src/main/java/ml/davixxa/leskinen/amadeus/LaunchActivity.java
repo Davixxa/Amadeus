@@ -12,8 +12,8 @@ import android.widget.TextView;
 
 public class LaunchActivity extends AppCompatActivity {
     ImageView connectTBI, cancelTBI;
-    TextView statusTBI;
-    ImageView connect;
+    TextView status;
+    ImageView connect, cancel;
     AnimationDrawable logo;
     ImageView imageViewLogo;
 
@@ -26,8 +26,23 @@ public class LaunchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_launch);
 
         connect = (ImageView) findViewById(R.id.imgConnect);
+        cancel = (ImageView) findViewById(R.id.imgCancel);
+        status = (TextView) findViewById(R.id.tvStatus);
+        connect.setImageResource(R.drawable.connect_normal);
+        connect.setImageResource(R.drawable.cancel_normal);
 
 
+    }
+
+    public void cancelClick(View view) {
+
+        cancel.setImageResource(R.drawable.cancel_selected);
+
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        
 
     }
 
@@ -69,4 +84,22 @@ public class LaunchActivity extends AppCompatActivity {
 
 
     }
+
+
+    protected void onResume() {
+        if (isPressed) {
+            status.setText(R.string.disconnected);
+        } else  {
+            //else if {
+            //}
+            status.setText(R.string.connect_to_leskinen);
+
+        }
+        isPressed = false;
+        cancel.setImageResource(R.drawable.cancel_normal);
+        connect.setImageResource(R.drawable.connect_normal);
+        super.onResume();
+
+    }
+
 }
