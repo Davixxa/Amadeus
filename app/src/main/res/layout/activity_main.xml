@@ -8,17 +8,17 @@
 
     <ImageView
         android:id="@+id/amadeusbg"
-        android:layout_width="0dp"
-        android:layout_height="612dp"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/amadeusbg"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="-36dp" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
 
     <ImageView
         android:id="@+id/leskinen"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:onClick="leskinenClick"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -26,7 +26,20 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/leskinen1a" />
+
+    <ImageView
+        android:id="@+id/amadeusLogoTrans"
+        android:layout_width="77dp"
+        android:layout_height="82dp"
+        app:srcCompat="@drawable/amadeus_transparent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="505dp" />
 
 </android.support.constraint.ConstraintLayout>
